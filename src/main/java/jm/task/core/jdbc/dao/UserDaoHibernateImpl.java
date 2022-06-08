@@ -9,14 +9,14 @@ import java.util.List;
 import static jm.task.core.jdbc.util.Util.getSessionFactory;
 
 public class UserDaoHibernateImpl implements UserDao {
+    private Transaction ta = null;
+    private Session session = null;
     public UserDaoHibernateImpl() {
 
     }
 
     @Override
     public void createUsersTable() {
-        Transaction ta = null;
-        Session session = null;
         try {
             session = getSessionFactory().openSession();
             ta = session.beginTransaction();
@@ -38,8 +38,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-        Transaction ta = null;
-        Session session = null;
         try {
             session = getSessionFactory().openSession();
             ta = session.beginTransaction();
@@ -56,8 +54,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
-        Transaction ta = null;
-        Session session = null;
         try {
             session = getSessionFactory().openSession();
             ta = session.beginTransaction();
@@ -75,8 +71,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void removeUserById(long id) {
-        Transaction ta = null;
-        Session session = null;
         try {
             session = getSessionFactory().openSession();
             ta = session.beginTransaction();
@@ -100,8 +94,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void cleanUsersTable() {
-        Transaction ta = null;
-        Session session = null;
         try {
             session = getSessionFactory().openSession();
             ta = session.beginTransaction();
